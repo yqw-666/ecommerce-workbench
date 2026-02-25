@@ -92,7 +92,7 @@ export function Settings() {
               <Palette className="w-5 h-5 text-purple-600" />
             </div>
             <div>
-              <h3 className="font-medium text-slate-800">视觉展示画师 (SiliconFlow / Recraft)</h3>
+              <h3 className="font-medium text-slate-800">视觉展示画师 (Seedream)</h3>
               <p className="text-sm text-slate-500">生成最终的商品场景展示图</p>
             </div>
           </div>
