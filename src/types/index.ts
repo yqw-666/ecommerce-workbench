@@ -3,6 +3,7 @@ export interface ProductInput {
   brand: string
   category: string
   targetAudience: string
+  sellingPoints?: string
   image: File | null
   imagePreview: string | null
 }
@@ -63,6 +64,7 @@ export interface LibraryItem {
     brand: string
     category: string
     targetAudience: string
+    sellingPoints?: string
     image: File | null
     imagePreview: string | null
     originalImage: string | null

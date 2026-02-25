@@ -188,54 +188,69 @@ function SingleItemTab({
   return (
     <div className="flex flex-col gap-8">
       <div className="space-y-6">
-        <div className="space-y-2.5">
-          <Label htmlFor="name" className="text-slate-700">
-            商品名称 <span className="text-red-500">*</span>
-          </Label>
-          <Input
-            id="name"
-            placeholder="例如：无线蓝牙耳机 Pro"
-            value={input.name}
-            onChange={(e) => onInputChange("name", e.target.value)}
-            disabled={isGenerating}
-          />
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2.5">
+            <Label htmlFor="name" className="text-slate-700">
+              商品名称 <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="name"
+              placeholder="例如：无线蓝牙耳机 Pro"
+              value={input.name}
+              onChange={(e) => onInputChange("name", e.target.value)}
+              disabled={isGenerating}
+            />
+          </div>
+
+          <div className="space-y-2.5">
+            <Label htmlFor="brand" className="text-slate-700">
+              品牌 <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="brand"
+              placeholder="例如：索尼、华为、苹果"
+              value={input.brand}
+              onChange={(e) => onInputChange("brand", e.target.value)}
+              disabled={isGenerating}
+            />
+          </div>
+
+          <div className="space-y-2.5">
+            <Label htmlFor="category" className="text-slate-700">
+              类目
+            </Label>
+            <Input
+              id="category"
+              placeholder="例如：数码配件、美妆护肤"
+              value={input.category}
+              onChange={(e) => onInputChange("category", e.target.value)}
+              disabled={isGenerating}
+            />
+          </div>
+
+          <div className="space-y-2.5">
+            <Label htmlFor="targetAudience" className="text-slate-700">
+              目标受众
+            </Label>
+            <Input
+              id="targetAudience"
+              placeholder="例如：年轻白领、学生群体"
+              value={input.targetAudience}
+              onChange={(e) => onInputChange("targetAudience", e.target.value)}
+              disabled={isGenerating}
+            />
+          </div>
         </div>
 
         <div className="space-y-2.5">
-          <Label htmlFor="brand" className="text-slate-700">
-            品牌 <span className="text-red-500">*</span>
+          <Label htmlFor="sellingPoints" className="text-slate-700">
+            核心卖点
           </Label>
           <Input
-            id="brand"
-            placeholder="例如：索尼、华为、苹果"
-            value={input.brand}
-            onChange={(e) => onInputChange("brand", e.target.value)}
-            disabled={isGenerating}
-          />
-        </div>
-
-        <div className="space-y-2.5">
-          <Label htmlFor="category" className="text-slate-700">
-            类目
-          </Label>
-          <Input
-            id="category"
-            placeholder="例如：数码配件、美妆护肤"
-            value={input.category}
-            onChange={(e) => onInputChange("category", e.target.value)}
-            disabled={isGenerating}
-          />
-        </div>
-
-        <div className="space-y-2.5">
-          <Label htmlFor="targetAudience" className="text-slate-700">
-            目标受众
-          </Label>
-          <Input
-            id="targetAudience"
-            placeholder="例如：年轻白领、学生群体"
-            value={input.targetAudience}
-            onChange={(e) => onInputChange("targetAudience", e.target.value)}
+            id="sellingPoints"
+            placeholder="例如：独家降噪技术、30小时长续航..."
+            value={input.sellingPoints || ""}
+            onChange={(e) => onInputChange("sellingPoints", e.target.value)}
             disabled={isGenerating}
           />
         </div>

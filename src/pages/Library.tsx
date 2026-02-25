@@ -61,6 +61,7 @@ export function Library() {
           brand: item.input.brand,
           category: item.input.category,
           targetAudience: item.input.targetAudience,
+          sellingPoints: item.input.sellingPoints,
           image: null,
           imagePreview: item.input.originalImage || null,
         },

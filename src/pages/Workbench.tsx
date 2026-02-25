@@ -191,13 +191,17 @@ async function generateWithDeepSeek(
   }
 
   const systemPrompt = "你是一个资深的电商营销专家，擅长撰写高转化率的商品种草文案。"
-  let userPrompt = `请为商品『${input.name}』撰写文案。品牌：${input.brand}，类目：${input.category}，目标受众：${input.targetAudience}。`
+  let userPrompt = `请为商品『${input.name}』撰写电商种草文案。品牌：${input.brand}，类目：${input.category}，目标受众：${input.targetAudience}。`
+
+  if (input.sellingPoints) {
+    userPrompt += `\n该商品的核心卖点是：${input.sellingPoints}。`
+  }
 
   if (imageDescription) {
     userPrompt += `\n\n商品图片分析：${imageDescription}`
   }
 
-  userPrompt += "\n\n请输出包含吸睛标题、核心卖点和行动号召的完整文案。"
+  userPrompt += "\n\n请基于这些信息，输出包含吸睛标题、卖点解析和行动号召的完整文案。"
 
   const textGenerationPromise = fetch("https://api.deepseek.com/chat/completions", {
     method: "POST",
@@ -320,6 +324,7 @@ export function Workbench() {
       brand: "索尼 (Sony)",
       category: "数码家电 / 影音配件",
       targetAudience: "年轻白领、学生群体、数码发烧友",
+      sellingPoints: "独家降噪技术、30小时长续航、Hi-Res音频认证",
       image: null,
       imagePreview: "https://picsum.photos/400/400",
     })
@@ -364,6 +369,7 @@ export function Workbench() {
         brand: input.brand,
         category: input.category,
         targetAudience: input.targetAudience,
+        sellingPoints: input.sellingPoints,
         image: null,
         imagePreview: input.imagePreview,
         originalImage: input.imagePreview || null,
