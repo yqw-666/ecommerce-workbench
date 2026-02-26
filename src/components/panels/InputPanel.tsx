@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input, Label, ImageUpload } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { Sparkles, Upload, Download, FileSpreadsheet, Wand2 } from "lucide-react"
+import { Sparkles, Upload, Download, FileSpreadsheet } from "lucide-react"
 import * as XLSX from "xlsx"
 
 interface InputPanelProps {
@@ -14,7 +14,6 @@ interface InputPanelProps {
   onSingleInputChange: (field: keyof ProductInput, value: string | File | null | string) => void
   onSingleGenerate: () => void
   isSingleGenerating: boolean
-  onFillTestData: () => void
   onLoadDemoData: () => void
   bulkData: BulkImportData | null
   onBulkDataChange: (data: BulkImportData | null) => void
@@ -71,7 +70,6 @@ export function InputPanel({
   onSingleInputChange,
   onSingleGenerate,
   isSingleGenerating,
-  onFillTestData,
   onLoadDemoData,
   bulkData,
   onBulkDataChange,
@@ -148,7 +146,6 @@ export function InputPanel({
               onGenerate={onSingleGenerate}
               isGenerating={isSingleGenerating}
               isFormValid={isSingleFormValid}
-              onFillTestData={onFillTestData}
               onLoadDemoData={onLoadDemoData}
             />
           </TabsContent>
@@ -165,6 +162,7 @@ export function InputPanel({
               onBulkPageChange={onBulkPageChange}
               readyCount={readyCount}
               isBulkGenerating={isBulkGenerating}
+              onLoadDemoData={onLoadDemoData}
             />
           </TabsContent>
         </Tabs>
@@ -179,7 +177,6 @@ function SingleItemTab({
   onGenerate,
   isGenerating,
   isFormValid,
-  onFillTestData,
   onLoadDemoData,
 }: {
   input: ProductInput
@@ -187,7 +184,6 @@ function SingleItemTab({
   onGenerate: () => void
   isGenerating: boolean
   isFormValid: boolean
-  onFillTestData: () => void
   onLoadDemoData: () => void
 }) {
   return (
@@ -284,16 +280,6 @@ function SingleItemTab({
           🚀 一键载入最佳实践
         </Button>
         <Button
-          variant="ghost"
-          size="sm"
-          onClick={onFillTestData}
-          disabled={isGenerating}
-          className="w-full mb-3 text-slate-500 hover:text-slate-700"
-        >
-          <Wand2 className="w-4 h-4 mr-1" />
-          一键填充测试数据
-        </Button>
-        <Button
           onClick={onGenerate}
           disabled={!isFormValid || isGenerating}
           className="w-full h-12 text-base"
@@ -322,6 +308,7 @@ function BulkImportTab({
   onBulkPageChange,
   readyCount,
   isBulkGenerating,
+  onLoadDemoData,
 }: {
   bulkData: BulkImportData | null
   isUploading: boolean
@@ -333,6 +320,7 @@ function BulkImportTab({
   onBulkPageChange: (page: number) => void
   readyCount: number
   isBulkGenerating: boolean
+  onLoadDemoData: () => void
 }) {
   if (!bulkData) {
     return (
@@ -370,6 +358,12 @@ function BulkImportTab({
           >
             <Download className="mr-1 inline h-4 w-4" />
             下载 Excel 模板
+          </button>
+          <button
+            onClick={onLoadDemoData}
+            className="mt-3 text-sm text-purple-600 hover:text-purple-700 hover:underline"
+          >
+            🚀 一键载入最佳实践
           </button>
         </div>
 

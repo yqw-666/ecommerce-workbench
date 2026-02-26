@@ -319,18 +319,6 @@ export function Workbench() {
     setSingleInput((prev) => ({ ...prev, [field]: value }))
   }
 
-  const handleFillTestData = () => {
-    setSingleInput({
-      name: "降噪头戴式蓝牙耳机 Pro Max",
-      brand: "索尼 (Sony)",
-      category: "数码家电 / 影音配件",
-      targetAudience: "年轻白领、学生群体、数码发烧友",
-      sellingPoints: "独家降噪技术、30小时长续航、Hi-Res音频认证",
-      image: null,
-      imagePreview: "https://picsum.photos/400/400",
-    })
-  }
-
   const handleLoadDemoData = async () => {
     await new Promise((resolve) => setTimeout(resolve, 300))
     
@@ -670,7 +658,6 @@ export function Workbench() {
               onSingleInputChange={handleSingleInputChange}
               onSingleGenerate={handleSingleGenerate}
               isSingleGenerating={isSingleGenerating}
-              onFillTestData={handleFillTestData}
               onLoadDemoData={handleLoadDemoData}
               bulkData={bulkData}
               onBulkDataChange={handleBulkDataChange}
