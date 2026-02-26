@@ -15,6 +15,7 @@ interface InputPanelProps {
   onSingleGenerate: () => void
   isSingleGenerating: boolean
   onFillTestData: () => void
+  onLoadDemoData: () => void
   bulkData: BulkImportData | null
   onBulkDataChange: (data: BulkImportData | null) => void
   onBulkPageChange: (page: number) => void
@@ -71,6 +72,7 @@ export function InputPanel({
   onSingleGenerate,
   isSingleGenerating,
   onFillTestData,
+  onLoadDemoData,
   bulkData,
   onBulkDataChange,
   onBulkPageChange,
@@ -147,6 +149,7 @@ export function InputPanel({
               isGenerating={isSingleGenerating}
               isFormValid={isSingleFormValid}
               onFillTestData={onFillTestData}
+              onLoadDemoData={onLoadDemoData}
             />
           </TabsContent>
 
@@ -177,6 +180,7 @@ function SingleItemTab({
   isGenerating,
   isFormValid,
   onFillTestData,
+  onLoadDemoData,
 }: {
   input: ProductInput
   onInputChange: (field: keyof ProductInput, value: string | File | null | string) => void
@@ -184,6 +188,7 @@ function SingleItemTab({
   isGenerating: boolean
   isFormValid: boolean
   onFillTestData: () => void
+  onLoadDemoData: () => void
 }) {
   return (
     <div className="flex flex-col gap-8">
@@ -269,6 +274,15 @@ function SingleItemTab({
       </div>
 
       <div className="mt-auto pt-6">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={onLoadDemoData}
+          disabled={isGenerating}
+          className="w-full mb-3 text-slate-500 hover:text-slate-700"
+        >
+          🚀 一键载入最佳实践
+        </Button>
         <Button
           variant="ghost"
           size="sm"

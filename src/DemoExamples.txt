@@ -1,0 +1,101 @@
+// src/data/demoExamples.ts
+
+export interface DemoCase {
+  id: string;
+  name: string; // 用于按钮显示的名称
+  input: {
+    productName: string;
+    brand: string;
+    category: string;
+    targetAudience: string;
+    sellingPoints: string;
+    originalImage: string;
+  };
+  output: {
+    copy: string;
+    sceneImage: string;
+  };
+}
+
+export const demoExamples: DemoCase[] = [
+  {
+    id: "tech",
+    name: "🎧 数码：降噪耳机",
+    input: {
+      productName: "WH-1000XM5 无线降噪耳机",
+      brand: "Sony",
+      category: "数码影音",
+      targetAudience: "商务出差人士、极客、学生",
+      sellingPoints: "行业领先的主动降噪、30小时超长续航、佩戴无感、双设备连接",
+      originalImage: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=400&q=80"
+    },
+    output: {
+      copy: "### 🔇 世界再嘈杂，此刻只属于你\n\n**#Sony WH-1000XM5 #静享世界**\n\n还在为地铁的轰鸣、办公室的嘈杂而烦恼？你需要的不只是耳机，是一扇通往宁静的门。\n\n#### 🔥 硬核黑科技解析\n- **降噪天花板**：搭载全新 V1 处理器，智能识别环境噪音，戴上即刻「静」入佳境。\n- **全天候陪伴**：30小时强劲续航，充电3分钟听歌3小时，告别电量焦虑。\n- **云感佩戴**：超轻量化设计配合柔软减压皮，即使跨洋飞行也依然舒适如初。\n\n#### 💡 适用场景\n无论是商务舱里的深度睡眠，还是图书馆里的专注学习，它都是你最懂事的默契拍档。\n\n👉 **给自己一片净土，现在下单立享 24 期免息！**",
+      sceneImage: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    id: "beauty",
+    name: "💄 美妆：焕颜精华",
+    input: {
+      productName: "光蕴环采钻白精华露",
+      brand: "SK-II",
+      category: "美妆护肤",
+      targetAudience: "熬夜党、都市白领、追求美白人群",
+      sellingPoints: "独家Pitera成分、击退暗沉、7天提亮肤色、清爽不油腻",
+      originalImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80"
+    },
+    output: {
+      copy: "### ✨ 熬夜脸救星！一瓶点亮「灯泡肌」\n\n**#素颜发光 #美白精华 #SKII小灯泡**\n\n每天面对电脑手机，肤色暗沉蜡黄怎么办？别让疲惫掩盖了你的光芒！\n\n#### 💖 核心成分大揭秘\n- **王牌 Pitera™**：深入肌底修护，调节水油平衡，从内而外透出健康光泽。\n- **精准抑黑**：源头阻击黑色素，斑点痘印统统退散，7天见证透亮奇迹。\n- **牛奶质地**：一抹化水秒吸收，润而不油，后续上妆更服帖。\n\n#### 🌸 真实测评\n“用了一周，同事都问我是不是打了水光针！” —— 资深熬夜党亲测。\n\n👉 **点击下方链接，查收你的春日发光秘籍！**",
+      sceneImage: "https://images.unsplash.com/photo-1571781926291-28b46c5a1435?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    id: "home",
+    name: "☕ 家居：复古咖啡机",
+    input: {
+      productName: "意式半自动复古咖啡机",
+      brand: "Smeg",
+      category: "家用电器",
+      targetAudience: "精致生活家、咖啡爱好者、颜控",
+      sellingPoints: "50年代复古造型、15Bar黄金萃取压力、奶泡绵密、操作简单",
+      originalImage: "https://images.unsplash.com/photo-1520970014086-2208d1579ff0?auto=format&fit=crop&w=400&q=80"
+    },
+    output: {
+      copy: "### ☕ 把意大利街角的咖啡馆，搬进自家厨房\n\n**#居家咖啡馆 #复古美学 #早安咖啡**\n\n清晨的第一缕阳光，配上一杯油脂丰厚的 Espresso，这就是生活该有的样子。\n\n#### 🌟 始于颜值，忠于品质\n- **艺术品级设计**：圆润的复古线条搭配奶油色系，摆在哪里都是家居杂志封面款。\n- **专业萃取**：15Bar 黄金泵压，完整释放咖啡豆的油脂与香气，口感醇厚。\n- **花式躺平**：强劲蒸汽杆，小白也能打出绵密奶泡，拿铁、卡布奇诺随心做。\n\n#### 🏡 生活仪式感\n不用排队去星巴克，在家只需 2 分钟，享受专属于你的私人咖啡时光。\n\n👉 **提升幸福感好物，限时赠送磨豆机！**",
+      sceneImage: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    id: "shoes",
+    name: "👟 运动：碳板跑鞋",
+    input: {
+      productName: "Zoom Fly 5 竞速跑鞋",
+      brand: "Nike",
+      category: "运动户外",
+      targetAudience: "马拉松爱好者、夜跑族",
+      sellingPoints: "全掌碳板推进、ZoomX 泡棉回弹、透气网面、抓地力强",
+      originalImage: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80"
+    },
+    output: {
+      copy: "### 🏃‍♂️ 突破配速瓶颈，这一双就够了\n\n**#跑步装备 #PB神器 #马拉松**\n\n每一公里的坚持，都值得更好的反馈。穿上它，感受起飞般的推进感！\n\n#### 🚀 为速度而生\n- **全掌碳板**：就像脚底装了弹簧，提供源源不断的向前推进力，省力更高效。\n- **澎湃回弹**：ZoomX 泡棉科技，落地瞬间吸收冲击并转化为回弹动能，护膝更舒适。\n- **透气如风**：工程网眼鞋面，长距离奔跑双脚依然干爽不闷热。\n\n#### 🏅 跑者之选\n无论是备战首马，还是日常 5 公里打卡，它都能助你轻松刷新个人最佳纪录。\n\n👉 **趁现在码全，赶紧入手你的战靴！**",
+      sceneImage: "https://images.unsplash.com/photo-1556906781-9a412961d289?auto=format&fit=crop&w=800&q=80"
+    }
+  },
+  {
+    id: "food",
+    name: "🍪 食品：全麦欧包",
+    input: {
+      productName: "0糖全麦坚果大列巴",
+      brand: "轻食主义",
+      category: "健康零食",
+      targetAudience: "减脂人群、健身党、早八人",
+      sellingPoints: "0添加蔗糖、饱腹感强、坚果含量>30%、低GI慢碳水",
+      originalImage: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"
+    },
+    output: {
+      copy: "### 🥯 谁说减脂只能吃草？这口大列巴太香了！\n\n**#减脂早餐 #低卡美食 #饱腹感**\n\n想瘦又管不住嘴？这款「抗饿神器」让你大口吃碳水，体重不焦虑！\n\n#### 🍃 干净配料表\n- **真全麦**：粗粮细作，富含膳食纤维，低 GI 慢碳水，平稳血糖不犯困。\n- **料超多**：核桃、也就是、提子干...每一口都能咬到大颗坚果，越嚼越香。\n- **0负担**：坚持不加一粒蔗糖，不含反式脂肪酸，健身教练都囤了一箱。\n\n#### ⏰ 30秒搞定早餐\n两片面包+一杯牛奶，只需 30 秒，搞定一顿营养均衡的完美早餐，抗饿一整上午。\n\n👉 **买一箱送一箱，减脂期的快乐源泉！**",
+      sceneImage: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80"
+    }
+  }
+];

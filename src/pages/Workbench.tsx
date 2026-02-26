@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom"
 import { InputPanel } from "@/components/panels/InputPanel"
 import { OutputPanel } from "@/components/panels/OutputPanel"
 import type { ProductInput, GenerationResult, HistoryItem, BulkImportData, ActiveTab, TaskStatus, LibraryItem, CopywritingVersion } from "@/types"
+import { demoExamples } from "@/DemoExamples"
 import { Sparkles, History } from "lucide-react"
 
 const LIBRARY_STORAGE_KEY = "easy_vibe_library_data"
@@ -330,6 +331,81 @@ export function Workbench() {
     })
   }
 
+  const handleLoadDemoData = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 300))
+    
+    if (activeTab === "single") {
+      const randomIndex = Math.floor(Math.random() * demoExamples.length)
+      const demo = demoExamples[randomIndex]
+      
+      setSingleInput({
+        name: demo.input.productName,
+        brand: demo.input.brand,
+        category: demo.input.category,
+        targetAudience: demo.input.targetAudience,
+        sellingPoints: demo.input.sellingPoints,
+        image: null,
+        imagePreview: demo.input.originalImage,
+      })
+      
+      const mockResult: GenerationResult = {
+        copywritings: [
+          {
+            id: `cw-${Date.now()}`,
+            title: "种草推荐",
+            content: demo.output.copy,
+          },
+        ],
+        images: [
+          {
+            id: `img-${Date.now()}-1`,
+            url: demo.output.sceneImage,
+            description: "商品场景展示图",
+          },
+        ],
+      }
+      
+      setSingleResult(mockResult)
+    } else {
+      const tasks = demoExamples.map((demo, index) => ({
+        id: `task-${index}`,
+        name: demo.input.productName,
+        coreSellingPoint: demo.input.sellingPoints,
+        brandTone: demo.input.brand,
+        targetAudience: demo.input.targetAudience,
+        status: "completed" as TaskStatus,
+        image: null as File | null,
+        imagePreview: demo.input.originalImage,
+        mockImageUrl: demo.input.originalImage,
+        result: {
+          copywritings: [
+            {
+              id: `cw-${Date.now()}-${index}`,
+              title: "种草推荐",
+              content: demo.output.copy,
+            },
+          ],
+          images: [
+            {
+              id: `img-${Date.now()}-${index}`,
+              url: demo.output.sceneImage,
+              description: "商品场景展示图",
+            },
+          ],
+        } as GenerationResult,
+      }))
+      
+      setBulkData({
+        tasks,
+        currentPage: 1,
+        pageSize: 20,
+        totalCount: tasks.length,
+      })
+    }
+    
+    alert("演示数据已载入")
+  }
+
   const handleSingleGenerate = async () => {
     if (!singleInput.name.trim() || !singleInput.brand.trim()) return
 
@@ -595,6 +671,7 @@ export function Workbench() {
               onSingleGenerate={handleSingleGenerate}
               isSingleGenerating={isSingleGenerating}
               onFillTestData={handleFillTestData}
+              onLoadDemoData={handleLoadDemoData}
               bulkData={bulkData}
               onBulkDataChange={handleBulkDataChange}
               onBulkPageChange={handleBulkPageChange}
